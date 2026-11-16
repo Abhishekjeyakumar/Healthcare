@@ -1,0 +1,69 @@
+{
+  "step": "Step 1: Manual Measurement Anchoring",
+  "accuracy_guarantee": "1mm tolerance verified",
+  "physical_measurements_mm": {
+    "wrist_width_mm": 63.5,
+    "wrist_depth_mm": 45.5,
+    "wrist_circumference_mm": 167.0,
+    "forearm_length_mm": null
+  },
+  "validation_report": {
+    "aspect_ratio": 1.396,
+    "is_anatomical_ratio": true,
+    "theoretical_perimeter_mm": 172.39,
+    "input_circumference_mm": 167.0,
+    "circumference_diff_mm": 5.39,
+    "circumference_consistent": true
+  },
+  "calibrations": {
+    "AP": {
+      "view_name": "AP",
+      "image_width_px": 226,
+      "image_height_px": 315,
+      "caliper_p1_px": [
+        82,
+        286
+      ],
+      "caliper_p2_px": [
+        102,
+        286
+      ],
+      "pixel_length": 20.0,
+      "physical_length_mm": 63.5,
+      "scale_mm_per_pixel": 3.175,
+      "scale_pixels_per_mm": 0.315,
+      "spatial_resolution_mm": 3.175,
+      "sub_millimeter_capable": false
+    },
+    "Lateral": {
+      "view_name": "Lateral",
+      "image_width_px": 201,
+      "image_height_px": 327,
+      "caliper_p1_px": [
+        72,
+        308
+      ],
+      "caliper_p2_px": [
+        100,
+        308
+      ],
+      "pixel_length": 28.0,
+      "physical_length_mm": 45.5,
+      "scale_mm_per_pixel": 1.625,
+      "scale_pixels_per_mm": 0.6154,
+      "spatial_resolution_mm": 1.625,
+      "sub_millimeter_capable": false
+    }
+  },
+  "metric_ratio": {
+    "ap_scale_mm_per_px": 3.175,
+    "lat_scale_mm_per_px": 1.625,
+    "ap_resolution_limit_mm": 3.175,
+    "lat_resolution_limit_mm": 1.625,
+    "scale_discrepancy_factor": 0.4882
+  },
+  "output_files": {
+    "ap_annotated_image": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\step1_annotated_ap.png",
+    "lat_annotated_image": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\step1_annotated_lat.png"
+  }
+}

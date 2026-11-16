@@ -1,0 +1,39 @@
+{
+  "step": "Step 4: The Mannequin Cut & Watertight STL Export",
+  "production_files": {
+    "stl_file": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\mannequin_hand_production.stl",
+    "3mf_file": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\mannequin_hand_production.3mf",
+    "quality_control_sheet": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\step4_printability_inspection.png"
+  },
+  "mannequin_cut_parameters": {
+    "cut_level_from_raw_base_mm": 6.0,
+    "standing_base_plane": "Z = 0.0 mm (Flush Planar Cap)",
+    "adjusted_wrist_crease_z_mm": 74.0
+  },
+  "mesh_quality_audit": {
+    "vertex_count": 6625,
+    "triangle_count": 13246,
+    "is_watertight": true,
+    "is_winding_consistent": true,
+    "non_manifold_edges": 0,
+    "bounding_box_mm": [
+      152.67,
+      67.39,
+      735.5
+    ]
+  },
+  "3d_printing_slicer_audit": {
+    "volume_solid_cm3": 1416.98,
+    "volume_15pct_infill_cm3": 637.64,
+    "material_weights_grams": {
+      "PLA": 790.7,
+      "PETG": 809.8,
+      "TPU_Flexible": 771.5,
+      "SLA_Resin": 733.3
+    },
+    "estimated_print_time_hours": 45.5,
+    "recommended_layer_height_mm": 0.16,
+    "max_overhang_angle_deg": 0.0,
+    "support_needed_percentage": 1.47
+  }
+}
