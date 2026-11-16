@@ -22,7 +22,7 @@ export interface CaliperData {
 
 interface Viewer3DProps {
   objString: string | null;
-  wireframe: boolean;
+  wireframe?: boolean;
   autoRotate?: boolean;
   showCaliper?: boolean;
   caliperData?: CaliperData | null;
@@ -363,7 +363,7 @@ function CaliperOverlay3D({
 
 export default function Viewer3D({
   objString,
-  wireframe,
+  wireframe = false,
   autoRotate = false,
   showCaliper = false,
   caliperData = null,

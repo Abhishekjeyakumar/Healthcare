@@ -2,18 +2,18 @@
   "step": "Step 1: Manual Measurement Anchoring",
   "accuracy_guarantee": "1mm tolerance verified",
   "physical_measurements_mm": {
-    "wrist_width_mm": 50.5,
-    "wrist_depth_mm": 42.0,
-    "wrist_circumference_mm": 158.0,
+    "wrist_width_mm": 56.0,
+    "wrist_depth_mm": 38.0,
+    "wrist_circumference_mm": 150.0,
     "forearm_length_mm": null
   },
   "validation_report": {
-    "aspect_ratio": 1.202,
+    "aspect_ratio": 1.474,
     "is_anatomical_ratio": true,
-    "theoretical_perimeter_mm": 145.61,
-    "input_circumference_mm": 158.0,
-    "circumference_diff_mm": 12.39,
-    "circumference_consistent": false
+    "theoretical_perimeter_mm": 149.01,
+    "input_circumference_mm": 150.0,
+    "circumference_diff_mm": 0.99,
+    "circumference_consistent": true
   },
   "calibrations": {
     "AP": {
@@ -21,18 +21,18 @@
       "image_width_px": 372,
       "image_height_px": 632,
       "caliper_p1_px": [
-        148,
-        567
+        147,
+        562
       ],
       "caliper_p2_px": [
         301,
-        567
+        562
       ],
-      "pixel_length": 153.0,
-      "physical_length_mm": 50.5,
-      "scale_mm_per_pixel": 0.330065,
-      "scale_pixels_per_mm": 3.0297,
-      "spatial_resolution_mm": 0.3301,
+      "pixel_length": 154.0,
+      "physical_length_mm": 56.0,
+      "scale_mm_per_pixel": 0.363636,
+      "scale_pixels_per_mm": 2.75,
+      "spatial_resolution_mm": 0.3636,
       "sub_millimeter_capable": true
     },
     "Lateral": {
@@ -40,27 +40,27 @@
       "image_width_px": 252,
       "image_height_px": 402,
       "caliper_p1_px": [
-        111,
-        348
+        110,
+        344
       ],
       "caliper_p2_px": [
-        175,
-        348
+        174,
+        344
       ],
       "pixel_length": 64.0,
-      "physical_length_mm": 42.0,
-      "scale_mm_per_pixel": 0.65625,
-      "scale_pixels_per_mm": 1.5238,
-      "spatial_resolution_mm": 0.6562,
+      "physical_length_mm": 38.0,
+      "scale_mm_per_pixel": 0.59375,
+      "scale_pixels_per_mm": 1.6842,
+      "spatial_resolution_mm": 0.5938,
       "sub_millimeter_capable": true
     }
   },
   "metric_ratio": {
-    "ap_scale_mm_per_px": 0.330065,
-    "lat_scale_mm_per_px": 0.65625,
-    "ap_resolution_limit_mm": 0.3301,
-    "lat_resolution_limit_mm": 0.6562,
-    "scale_discrepancy_factor": 0.9882
+    "ap_scale_mm_per_px": 0.363636,
+    "lat_scale_mm_per_px": 0.59375,
+    "ap_resolution_limit_mm": 0.3636,
+    "lat_resolution_limit_mm": 0.5938,
+    "scale_discrepancy_factor": 0.6328
   },
   "output_files": {
     "ap_annotated_image": "D:\\3ddemo\\wrist_reconstruction\\output\\step1_annotated_ap.png",

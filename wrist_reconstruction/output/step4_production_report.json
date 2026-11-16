@@ -17,23 +17,23 @@
     "is_winding_consistent": true,
     "non_manifold_edges": 0,
     "bounding_box_mm": [
-      120.66,
-      62.09,
-      221.75
+      133.8,
+      56.18,
+      220.52
     ]
   },
   "3d_printing_slicer_audit": {
-    "volume_solid_cm3": 309.9,
-    "volume_15pct_infill_cm3": 139.46,
+    "volume_solid_cm3": 309.2,
+    "volume_15pct_infill_cm3": 139.14,
     "material_weights_grams": {
-      "PLA": 172.9,
-      "PETG": 177.1,
-      "TPU_Flexible": 168.7,
-      "SLA_Resin": 160.4
+      "PLA": 172.5,
+      "PETG": 176.7,
+      "TPU_Flexible": 168.4,
+      "SLA_Resin": 160.0
     },
-    "estimated_print_time_hours": 10.0,
+    "estimated_print_time_hours": 9.9,
     "recommended_layer_height_mm": 0.16,
     "max_overhang_angle_deg": 2.7,
-    "support_needed_percentage": 3.37
+    "support_needed_percentage": 3.38
   }
 }

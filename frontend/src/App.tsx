@@ -11,8 +11,6 @@ import {
   Sparkles,
   ShieldCheck,
   Box,
-  Clock,
-  Printer,
   RotateCw,
   Crosshair
 } from 'lucide-react';
@@ -84,9 +82,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState<string>('');
   const [result, setResult] = useState<ReconstructionResponse | null>(null);
-  const [wireframe, setWireframe] = useState(false);
-  const [autoRotate, setAutoRotate] = useState(false);
-  const [activeTab, setActiveTab] = useState<'caliper' | 'slicer' | 'diagnostics'>('caliper');
+  const [activeTab, setActiveTab] = useState<'caliper' | 'diagnostics'>('caliper');
   const [activeModalImage, setActiveModalImage] = useState<string | null>(null);
   const [showCaliper, setShowCaliper] = useState(true);
 
@@ -438,22 +434,6 @@ export default function App() {
                 <Crosshair className="h-3.5 w-3.5" />
                 1mm Caliper
               </button>
-              <button
-                onClick={() => setWireframe(!wireframe)}
-                className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition border ${
-                  wireframe ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' : 'bg-gray-900 text-gray-300 border-gray-800 hover:bg-gray-800'
-                }`}
-              >
-                Wireframe
-              </button>
-              <button
-                onClick={() => setAutoRotate(!autoRotate)}
-                className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition border ${
-                  autoRotate ? 'bg-teal-500/20 text-teal-300 border-teal-500/40' : 'bg-gray-900 text-gray-300 border-gray-800 hover:bg-gray-800'
-                }`}
-              >
-                Auto-Rotate
-              </button>
             </div>
           </div>
 
@@ -461,8 +441,6 @@ export default function App() {
           <div className="flex-1 relative p-4">
             <Viewer3D
               objString={result?.obj || null}
-              wireframe={wireframe}
-              autoRotate={autoRotate}
               showCaliper={showCaliper}
               caliperData={result?.caliper_accuracy as CaliperData | undefined}
             />
@@ -482,20 +460,12 @@ export default function App() {
                   1. 1mm Tolerance Caliper Audit
                 </button>
                 <button
-                  onClick={() => setActiveTab('slicer')}
-                  className={`py-2.5 border-b-2 transition ${
-                    activeTab === 'slicer' ? 'border-emerald-400 text-emerald-300 font-semibold' : 'border-transparent text-gray-400 hover:text-gray-200'
-                  }`}
-                >
-                  2. 3D Printing & Slicer Specs
-                </button>
-                <button
                   onClick={() => setActiveTab('diagnostics')}
                   className={`py-2.5 border-b-2 transition ${
                     activeTab === 'diagnostics' ? 'border-emerald-400 text-emerald-300 font-semibold' : 'border-transparent text-gray-400 hover:text-gray-200'
                   }`}
                 >
-                  3. Step-by-Step Diagnostic Overlays
+                  2. Step-by-Step Diagnostic Overlays
                 </button>
               </div>
 
@@ -546,59 +516,6 @@ export default function App() {
                         <div>H: {result.mesh_statistics.bounding_box_mm[2].toFixed(1)} mm</div>
                       </div>
                       <div className="mt-1 text-[11px] text-gray-400">Flush Cut Base at Z = 0.0 mm</div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'slicer' && (
-                  <div className="grid grid-cols-4 gap-4">
-                    <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-3.5">
-                      <span className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                        <Printer className="h-3.5 w-3.5 text-emerald-400" /> Material Weights
-                      </span>
-                      <div className="mt-1 text-xs space-y-1">
-                        <div className="flex justify-between">
-                          <span className="text-emerald-300 font-semibold">TPU (Flexible):</span>
-                          <span className="font-mono text-white">{result.slicer_estimates.weights_grams.TPU_Flexible} g</span>
-                        </div>
-                        <div className="flex justify-between text-gray-400">
-                          <span>PLA (Rigid):</span>
-                          <span className="font-mono text-gray-200">{result.slicer_estimates.weights_grams.PLA} g</span>
-                        </div>
-                        <div className="flex justify-between text-gray-400">
-                          <span>SLA Resin:</span>
-                          <span className="font-mono text-gray-200">{result.slicer_estimates.weights_grams.SLA_Resin} g</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-3.5">
-                      <span className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                        <Clock className="h-3.5 w-3.5 text-teal-400" /> Print Time Estimate
-                      </span>
-                      <div className="mt-2 text-2xl font-bold font-mono text-white">
-                        ~{result.slicer_estimates.estimated_print_time_hours} hrs
-                      </div>
-                      <p className="text-[11px] text-gray-400 mt-1">At 200 mm/s on modern high-speed printer</p>
-                    </div>
-
-                    <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-3.5">
-                      <span className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                        <Layers className="h-3.5 w-3.5 text-amber-400" /> Slicer Recommendation
-                      </span>
-                      <div className="mt-1 text-xs space-y-1 text-gray-300">
-                        <div>Layer Height: <strong className="text-white font-mono">{result.slicer_estimates.recommended_layer_height_mm} mm</strong></div>
-                        <div>Infill: <strong className="text-white">15% Gyroid</strong></div>
-                        <div>Perimeters: <strong className="text-white">3 Wall Loops</strong></div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-3.5">
-                      <span className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold">Overhang Support Area</span>
-                      <div className="mt-2 text-2xl font-bold font-mono text-emerald-400">
-                        {result.slicer_estimates.support_needed_pct}%
-                      </div>
-                      <p className="text-[11px] text-gray-400 mt-1">Upright standing base minimizes supports</p>
                     </div>
                   </div>
                 )}
