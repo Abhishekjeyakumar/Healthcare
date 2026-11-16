@@ -2,29 +2,29 @@
   "step": "Step 3: Anatomical Mannequin 3D Reconstruction",
   "model_type": "Watertight Anatomical Mannequin Hand (5 Separate Digits)",
   "format": "STL (Binary)",
-  "output_stl_path": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\wrist_mannequin_hand.stl",
-  "output_obj_path": "C:\\Users\\Admin\\Healthcare\\wrist_reconstruction\\output\\wrist_mannequin_hand.obj",
+  "output_stl_path": "D:\\3ddemo\\wrist_reconstruction\\output\\wrist_mannequin_hand.stl",
+  "output_obj_path": "D:\\3ddemo\\wrist_reconstruction\\output\\wrist_mannequin_hand.obj",
   "mesh_statistics": {
-    "vertex_count": 6625,
-    "face_count": 13246,
+    "vertex_count": 6607,
+    "face_count": 13210,
     "is_watertight": true,
     "is_winding_consistent": true,
-    "volume_cm3": 1416.98,
-    "surface_area_cm2": 1552.0,
+    "volume_cm3": 309.9,
+    "surface_area_cm2": 410.84,
     "bounding_box_mm": [
-      152.67,
-      67.39,
-      735.5
+      120.66,
+      62.09,
+      221.75
     ]
   },
   "caliper_verification": {
-    "inspection_level_z_mm": 71.0,
-    "target_width_mm": 63.5,
-    "mesh_width_mm": 63.5,
-    "width_error_mm": 0.0,
-    "target_depth_mm": 45.5,
-    "mesh_depth_mm": 45.5,
-    "depth_error_mm": 0.0,
+    "inspection_level_z_mm": 21.0,
+    "target_width_mm": 50.5,
+    "mesh_width_mm": 50.99,
+    "width_error_mm": 0.49,
+    "target_depth_mm": 42.0,
+    "mesh_depth_mm": 42.86,
+    "depth_error_mm": 0.86,
     "1mm_accuracy_guarantee": "PASSED"
   }
 }

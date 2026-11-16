@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Viewer3D from './components/Viewer3D';
+import type { CaliperData } from './components/Viewer3D';
 import {
   UploadCloud,
   CheckCircle2,
@@ -12,7 +13,8 @@ import {
   Box,
   Clock,
   Printer,
-  RotateCw
+  RotateCw,
+  Crosshair
 } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8000';
@@ -86,6 +88,7 @@ export default function App() {
   const [autoRotate, setAutoRotate] = useState(false);
   const [activeTab, setActiveTab] = useState<'caliper' | 'slicer' | 'diagnostics'>('caliper');
   const [activeModalImage, setActiveModalImage] = useState<string | null>(null);
+  const [showCaliper, setShowCaliper] = useState(true);
 
   // Quick load sample clinical images and measurements
   const handleLoadSample = async () => {
@@ -427,6 +430,15 @@ export default function App() {
               )}
 
               <button
+                onClick={() => setShowCaliper(!showCaliper)}
+                className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition border flex items-center gap-1.5 ${
+                  showCaliper ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-sm' : 'bg-gray-900 text-gray-300 border-gray-800 hover:bg-gray-800'
+                }`}
+              >
+                <Crosshair className="h-3.5 w-3.5" />
+                1mm Caliper
+              </button>
+              <button
                 onClick={() => setWireframe(!wireframe)}
                 className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition border ${
                   wireframe ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' : 'bg-gray-900 text-gray-300 border-gray-800 hover:bg-gray-800'
@@ -447,7 +459,13 @@ export default function App() {
 
           {/* Central 3D Canvas */}
           <div className="flex-1 relative p-4">
-            <Viewer3D objString={result?.obj || null} wireframe={wireframe} autoRotate={autoRotate} />
+            <Viewer3D
+              objString={result?.obj || null}
+              wireframe={wireframe}
+              autoRotate={autoRotate}
+              showCaliper={showCaliper}
+              caliperData={result?.caliper_accuracy as CaliperData | undefined}
+            />
           </div>
 
           {/* Bottom Diagnostic & Slicer Report Drawer */}
